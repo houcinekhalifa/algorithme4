@@ -1,0 +1,31 @@
+ALGORITHM somme
+VAR
+    set1,set2 : ARRAY_INTEGER;
+    somme,somme2:INTEGER:=0
+    i,j:INTEGER
+    ht:HASH_TABLE<Key_type,Value_type>
+BEGIN
+    FOR i FROM 0 TO set1.lenth-1   DO
+        ht.insert (set1[i],1)
+
+    END_FOR
+    FOR i FROM 0 TO set2.lenth-1  DO
+        IF (ht.lookup(set2[i])=true) THEN
+            count:=ht.get(set2[i])+1
+            ht.insert(set2[i],count)
+
+        END_IF
+
+    END_FOR
+    l:=ht.get keys()
+    FOR i FROM 0 TO l.lenth-1  DO
+        IF (ht.get(l[i])=1) THEN
+            somme:=somme+l[i]
+            ELSE 
+        somme2:=somme2+l[i]
+            END_IF
+        END_IF
+    END_FOR
+    write (somme)
+    write (somme2)
+END
